@@ -1,0 +1,7 @@
+{
+  "name": "sarv",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
