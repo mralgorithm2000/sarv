@@ -1,20 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header class="dashboard-header">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <div class="dashboard-bar">
+      <span class="dashboard-title">Sarv</span>
+      <button class="settings-btn" aria-label="Settings">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.01c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.01 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.01 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.01c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.01c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.01-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.01-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 0 0 2.572-1.01z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content class="dashboard-content" [fullscreen]="true">
+  <div class="prompt-area">
+    <div class="prompt-question">Why are you grateful today?</div>
+    <div class="prompt-date">{{ now | date:'fullDate' }}<br>{{ now | date:'shortTime' }}</div>
   </div>
+
+  <div class="entries-list">
+    <div *ngIf="gratitudeEntries.length === 0" class="empty-entries">No gratitude entries yet.</div>
+    <ion-list *ngIf="gratitudeEntries.length > 0">
+      <ion-item *ngFor="let entry of gratitudeEntries">
+        <ion-label>
+          <div class="entry-text">{{ entry.text }}</div>
+          <div class="entry-date">{{ formatDate(entry.date) }}</div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button class="fab-btn" (click)="openAddEntry()">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="setOpen(false)">
+    <ng-template>
+      <app-gratitude-entry-modal></app-gratitude-entry-modal>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -25,3 +25,93 @@
 #container a {
   text-decoration: none;
 }
+
+.dashboard-header {
+  --background: #f8fcff;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 2px 12px rgba(33, 150, 243, 0.04);
+}
+.dashboard-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+.dashboard-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2196f3;
+  letter-spacing: 0.04em;
+}
+.settings-btn {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.settings-btn:active {
+  background: #e3f2fd;
+}
+
+.dashboard-content {
+  --background: #f8fcff;
+  padding: 0 0 80px 0;
+}
+.prompt-area {
+  background: #e3f9f1;
+  border-radius: 24px;
+  margin: 24px 16px 16px 16px;
+  padding: 24px 16px 20px 16px;
+  box-shadow: 0 2px 12px rgba(16, 220, 96, 0.06);
+  text-align: center;
+}
+.prompt-question {
+  font-size: 1.2rem;
+  color: #2196f3;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.prompt-date {
+  font-size: 1rem;
+  color: #4caf50;
+  font-weight: 500;
+}
+.entries-list {
+  margin: 24px 0 0 0;
+  padding: 0 16px;
+}
+.empty-entries {
+  color: #bdbdbd;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 1.1rem;
+}
+ion-list {
+  background: transparent;
+}
+ion-item {
+  --background: #fff;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.04);
+  padding: 12px 8px;
+}
+.entry-text {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.entry-date {
+  font-size: 0.9rem;
+  color: #90caf9;
+}
+.fab-btn {
+  --background: linear-gradient(90deg, #10dc60 0%, #2196f3 100%);
+  --border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.12);
+}

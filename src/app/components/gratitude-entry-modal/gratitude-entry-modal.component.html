@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Gratitude Entry</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="datetime-display">
+    <ion-datetime
+      presentation="date-time"
+      [value]="currentDate"
+      readonly="true"
+      class="custom-datetime">
+    </ion-datetime>
+  </div>
+
+  <div class="entry-form">
+    <ion-textarea
+      [(ngModel)]="gratitudeText"
+      placeholder="What are you grateful for today?"
+      autoGrow="true"
+      rows="6"
+      class="custom-textarea">
+    </ion-textarea>
+
+    <div class="button-container">
+      <ion-button fill="outline" (click)="dismiss()">Cancel</ion-button>
+      <ion-button (click)="submitEntry()">Save Entry</ion-button>
+    </div>
+  </div>
+</ion-content>
