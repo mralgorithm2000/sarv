@@ -11,6 +11,7 @@ export interface GratitudeEntry {
 })
 export class StorageService {
   private readonly STORAGE_KEY = 'gratitude_entries';
+  private readonly TOKEN_KEY = 'auth_token';
 
   constructor() {}
 
@@ -74,5 +75,38 @@ export class StorageService {
       console.error('Error deleting entry:', error);
       throw error;
     }
+  }
+
+  /**
+   * Save authentication token
+   */
+  async saveToken(token: string): Promise<void> {
+    try {
+      await Preferences.set({ key: this.TOKEN_KEY, value: token });
+    } catch (error) {
+      console.error('Error saving token:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get authentication token
+   */
+  async getToken(): Promise<string | null> {
+    try {
+      const { value } = await Preferences.get({ key: this.TOKEN_KEY });
+      return value || null;
+    } catch (error) {
+      console.error('Error getting token:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Check if user is authenticated
+   */
+  async isAuthenticated(): Promise<boolean> {
+    const token = await this.getToken();
+    return !!token;
   }
 }

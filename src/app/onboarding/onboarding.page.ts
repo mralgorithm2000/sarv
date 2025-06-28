@@ -25,25 +25,30 @@ register();
 export class OnboardingPage {
   slides = [
     {
-      title: 'Welcome to Sarv',
-      description: 'Your daily gratitude companion',
-      image: 'assets/onboarding-1.svg'
+      title: 'به سرو خوش آمدید!',
+      description: 'اینجا آرامش و رشد درونی شما شکل میگیرد <br> سرو، همدم روزانه‌ی ثبت لحظه‌های شکرگزاری شماست.',
+      image: 'assets/imgs/onboarding-1.png'
     },
     {
-      title: 'Track Your Gratitude',
-      description: "Record what you're grateful for each day",
-      image: 'assets/onboarding-2.svg'
+      title: 'چرا شکرگزاری؟!',
+      description: "شکرگزاری، بر اساس یافته‌های جدید علمی، آرامش ذهن، شادی و رضایت را افزایش می‌دهد. <br> هر روز، فرصتی است برای قدردانی از زیبایی‌ها و لحظه‌های کوچک زندگی.",
+      image: 'assets/imgs/onboarding-2.png'
     },
     {
-      title: 'Build a Positive Mindset',
-      description: 'Develop a habit of gratitude and mindfulness',
-      image: 'assets/onboarding-3.svg'
+      title: 'شبکه‌سازی',
+      description: 'اگه دوست داشتی، می‌تونی شکرگزاری‌هات رو با بقیه به اشتراک بذاری <br/> و همچنین شکرگزاری‌های عمومی بقیه رو هم ببینی!',
+      image: 'assets/imgs/onboarding-3.png'
     }
   ];
 
   constructor(private router: Router) {}
 
-  finishOnboarding() {
-    this.router.navigate(['/home']);
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
 } 

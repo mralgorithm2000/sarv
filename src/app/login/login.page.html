@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ورود</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="login-content" [fullscreen]="true">
+  <form class="login-form" (ngSubmit)="submit()">
+    <div>
+  <ion-input
+    label="ایمیل | نام کاربری"
+    labelPlacement="floating"
+    [(ngModel)]="email"
+    name="email"
+    #emailInput="ngModel"
+    required
+    type="text"
+    class="login-input"
+    autocomplete="email"
+    [class.ion-invalid]="email_error"
+    [class.ion-touched]="email_error"
+    [class.has-focus]="email_error"
+  ></ion-input>
+  
+  <div *ngIf="email_error" class="login-error">{{ email_error }}</div>
+</div>
+
+<div>
+   <ion-input label="رمز عبور" labelPlacement="floating" [(ngModel)]="password" name="password" required
+      type="password" class="login-input" autocomplete="current-password"
+      [class.ion-invalid]="password_error"
+    [class.ion-touched]="password_error"
+    [class.has-focus]="password_error"></ion-input>
+         <div *ngIf="password_error" class="login-error">{{ password_error }}</div>
+    </div>
+    <div>
+    <div *ngIf="error" class="login-error">{{ error }}</div>
+    </div>
+ 
+
+    <ion-button expand="block" type="submit" [disabled]="loading">ورود</ion-button>
+    <ion-button expand="block" fill="clear" (click)="backToSplash()">بازگشت</ion-button>
+
+    <div *ngIf="loading" class="register-loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <span>در حال ارسال اطلاعات...</span>
+    </div>
+
+    <div *ngIf="success" class="login-success">
+      با موفقیت وارد شدید!
+    </div>
+  </form>
+</ion-content>

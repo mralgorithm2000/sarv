@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>گزارش پست</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">بستن</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Alert at the top -->
+ <app-alert
+  [title]="alert.type === 'success' ? 'موفق' : 'خطا'"
+  [message]="alert.message"
+  [type]="alert.type"
+  [show]="alert.show"
+  [timer]="3000"
+  (closed)="alert.show = false"
+></app-alert>
+
+  <form (ngSubmit)="submit()">
+    <div class="entry-form">
+      <ion-textarea
+        [(ngModel)]="text"
+        placeholder="توضیح (اختیاری)"
+        autoGrow="true"
+        rows="4"
+        class="custom-textarea"
+        name="text"
+      ></ion-textarea>
+      <div class="error" *ngIf="errors.text">{{ errors.text[0] }}</div>
+
+      <div class="type-group" style="margin-top: 18px;">
+        <label style="font-weight: 500; display: block; margin-bottom: 8px;">علت</label>
+        <ion-radio-group
+          [(ngModel)]="type"
+          name="type"
+          style="display: flex; flex-direction: row-reverse; gap: 24px;"
+        >
+          <ion-item *ngFor="let t of types" lines="none" style="--background: transparent;">
+            <ion-label>{{ t.name }}</ion-label>
+            <ion-radio slot="start" [value]="t.value"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <ion-button expand="block" type="submit" [disabled]="isSubmitting">
+        ارسال گزارش
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

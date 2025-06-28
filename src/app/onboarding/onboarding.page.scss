@@ -34,7 +34,7 @@
 
 .slide-description {
   font-size: 1.1rem;
-  color: var(--ion-text-color);
+  color: #121212;
   line-height: 1.5;
   margin-bottom: 32px;
   font-weight: 300;
@@ -68,13 +68,28 @@
 }
 
 .onboarding-continue {
-  --background: linear-gradient(135deg, var(--ion-color-primary) 0%, var(--ion-color-secondary) 100%);
+  --background: var(--ion-color-primary);
   --border-radius: var(--ion-border-radius);
   --box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
   font-weight: 500;
   height: 48px;
   margin: 0;
   
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.onboarding-getstarted {
+  --background: #2196f3;
+  --border-radius: var(--ion-border-radius);
+  --box-shadow: 0 4px 16px rgba(33, 150, 243, 0.12);
+  font-weight: 500;
+  height: 48px;
+  margin-top: 12px;
+  color: #fff;
+  font-family: "Iran Sans" !important;
+  transition: transform 0.2s;
   &:active {
     transform: scale(0.98);
   }

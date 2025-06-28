@@ -1,21 +1,53 @@
 // Global styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@font-face {
+  font-family: "IranSans";
+  src: url('assets/fonts/eot/IRANSansX-Regular.eot');
+  src: url('assets/fonts/eot/IRANSansX-Regular.eot') format('embedded-opentype'),
+       url('assets/fonts/woff2/IRANSansX-Regular.woff2') format('woff2'),
+       url('assets/fonts/woff/IRANSansX-Regular.woff') format('woff'),
+       url('assets/fonts/ttf/IRANSansX-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Iran Sans Bold";
+  src: url('assets/fonts/eot/IRANSansX-Bold.eot');
+  src: url('assets/fonts/eot/IRANSansX-Bold.eot') format('embedded-opentype'),
+       url('assets/fonts/woff2/IRANSansX-Bold.woff2') format('woff2'),
+       url('assets/fonts/woff/IRANSansX-Bold.woff') format('woff'),
+       url('assets/fonts/ttf/IRANSansX-Bold.ttf') format('truetype');
+}
+
+html {
+  direction: rtl !important;
 }
 
 body {
-  font-family: var(--ion-font-family);
+  font-family: "IranSans" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--ion-background-color);
+  background-color: #f8fcff;
   color: var(--ion-text-color);
+  direction: rtl !important;
 }
 
 // Page transitions
 ion-page {
   animation: fadeIn 0.3s ease-out;
+}
+
+// Optional slide-in transition for pages
+.slideIn {
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // Common utility classes
@@ -83,4 +115,15 @@ ion-page {
     outline: none;
     border-color: var(--ion-color-primary);
   }
+}
+
+html, body, ion-app, ion-router-outlet {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; // Prevent body scroll bleeding into content
+}
+
+ion-content {
+  height: 100%;
+  --background: #f8fcff;
 }

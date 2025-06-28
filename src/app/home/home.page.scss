@@ -1,11 +1,8 @@
 #container {
   text-align: center;
-
-  position: absolute;
+  direction: rtl;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 #container strong {
@@ -38,10 +35,13 @@
   justify-content: space-between;
   padding: 0 8px;
 }
+.dashboard-toolbr{
+  --background: var(--ion-color-primary);
+}
 .dashboard-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2196f3;
+  color: #fff;
   letter-spacing: 0.04em;
 }
 .settings-btn {
@@ -68,12 +68,14 @@
   padding: 24px 16px 20px 16px;
   box-shadow: 0 2px 12px rgba(16, 220, 96, 0.06);
   text-align: center;
+  
 }
 .prompt-question {
   font-size: 1.2rem;
-  color: #2196f3;
+  color: var(--ion-color-primary);
   font-weight: 600;
   margin-bottom: 8px;
+  direction: rtl;
 }
 .prompt-date {
   font-size: 1rem;
@@ -89,6 +91,7 @@
   text-align: center;
   margin-top: 32px;
   font-size: 1.1rem;
+  direction: rtl;
 }
 ion-list {
   background: transparent;
@@ -96,22 +99,141 @@ ion-list {
 ion-item {
   --background: #fff;
   border-radius: 18px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
   box-shadow: 0 2px 8px rgba(33, 150, 243, 0.04);
-  padding: 12px 8px;
 }
 .entry-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #333;
   font-weight: 500;
   margin-bottom: 4px;
+   direction: rtl;
 }
 .entry-date {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #90caf9;
 }
 .fab-btn {
-  --background: linear-gradient(90deg, #10dc60 0%, #2196f3 100%);
+  --background: var(--ion-color-primary);
   --border-radius: 50%;
   box-shadow: 0 4px 16px rgba(33, 150, 243, 0.12);
+}
+
+app-gratitude-entry-modal{
+  height: 100%;
+}
+
+.feed-list {
+  max-height: calc(100vh - 150px); // adjust based on header/footer
+  overflow-y: auto;
+  padding: 0 16px;
+}
+
+ion-card {
+  margin-bottom: 18px;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
+  background: #fff;
+}
+.post-header {
+  align-items: flex-start;
+  --background: transparent;
+}
+ion-avatar.custom-avatar {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+ion-avatar.custom-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+.username {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+.time-posted {
+  font-size: 0.7rem;
+  color: #90caf9;
+  margin-top: 2px;
+}
+.post-content {
+  font-size: 1rem;
+  color: #333;
+  margin: 0px 5px 8px 16px;
+  line-height: 1.6;
+  direction: rtl;
+  overflow: visible;
+}
+.view-more {
+  color: var(--ion-color-primary);
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 0.98rem;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  font-family: inherit;
+  display: inline;
+}
+.post-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 8px 0 0 0;
+  display: block;
+}
+.post-actions {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px 8px 8px;
+}
+.post-actions ion-button {
+  margin-right: 4px;
+  --color-activated: var(--ion-color-primary);
+}
+.post-actions ion-icon[name='heart'] {
+  color: #e53935;
+}
+
+.feed-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-size: 1.1rem;
+  color: #2196f3;
+  direction: rtl;
+}
+.report-botton{
+  color: #222;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.popover-content {
+  --width: 180px !important;
+  width: 180px !important;
+  border-radius: 16px;
+  --background: #fff;
 }

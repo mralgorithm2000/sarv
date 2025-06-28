@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ثبت نام</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="register-content" [fullscreen]="true">
+  <form class="register-form" (ngSubmit)="submit()">
+    <!-- Step 1: Name and Username -->
+    <div *ngIf="step === 0" class="register-step fadeIn">
+      <div>
+        <ion-input label="نام" labelPlacement="floating" [(ngModel)]="name" name="name" required class="register-input"
+         [class.ion-invalid]="name_error"
+          [class.ion-touched]="name_error"
+          [class.has-focus]="name_error"></ion-input>
+        <div *ngIf="name_error" class="error-container">{{ name_error }}</div>
+      </div>
+
+      <div>
+        <ion-input label="نام کاربری" labelPlacement="floating" [(ngModel)]="username" name="username" required class="register-input"
+        [class.ion-invalid]="username_error"
+          [class.ion-touched]="username_error"
+          [class.has-focus]="username_error"></ion-input>
+        <div *ngIf="username_error" class="error-container">{{ username_error }}</div>
+      </div>
+      <ion-button expand="block" (click)="nextStep()" [disabled]="!name || !username">ادامه</ion-button>
+    </div>
+    <!-- Step 2: Email and Password -->
+    <div *ngIf="step === 1" class="register-step fadeIn">
+      <div>
+        <ion-input label="ایمیل" labelPlacement="floating" [(ngModel)]="email" name="email" required type="email" class="register-input"
+        [class.ion-invalid]="email_error"
+          [class.ion-touched]="email_error"
+          [class.has-focus]="email_error"></ion-input>
+         <div *ngIf="email_error" class="error-container">{{ email_error }}</div>
+      </div>
+      
+      <div>
+        <ion-input label="رمز عبور" labelPlacement="floating" [(ngModel)]="password" name="password" required type="password" class="register-input"
+        [class.ion-invalid]="password_error"
+          [class.ion-touched]="password_error"
+          [class.has-focus]="password_error"></ion-input>
+         <div *ngIf="password_error" class="error-container">{{ password_error }}</div>
+      </div>
+      <div class="register-step-actions">
+        <ion-button class="btn-secondary" (click)="prevStep()">قبلی</ion-button>
+        <ion-button expand="block" (click)="nextStep()" [disabled]="!email || !password">ادامه</ion-button>
+      </div>
+    </div>
+    <!-- Step 3: Profile Image Upload -->
+    <div *ngIf="step === 2" class="register-step fadeIn">
+      <div class="profile-image-upload">
+        <label class="profile-image-label">
+          <input type="file" accept="image/*" (change)="onImageSelected($event)" hidden />
+          <ion-icon name="camera" size="large"></ion-icon>
+          <span>انتخاب تصویر پروفایل</span>
+        </label>
+        <div *ngIf="avatar_error" class="error-container">{{ avatar_error }}</div>
+
+        <img *ngIf="profileImage" [src]="profileImage" class="profile-preview" />
+      </div>
+      <div class="register-step-actions">
+        <ion-button class="btn-secondary" (click)="prevStep()">قبلی</ion-button>
+        <ion-button expand="block" type="submit" [disabled]="loading">ثبت نام</ion-button>
+      </div>
+    </div>
+    <div *ngIf="loading" class="register-loading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <span>در حال ارسال اطلاعات...</span>
+    </div>
+    <div *ngIf="error" class="register-error">{{ error }}</div>
+    <div *ngIf="success" class="register-success">
+      ثبت نام با موفقیت انجام شد!
+      <ion-button expand="block" (click)="goToLogin()">ورود</ion-button>
+    </div>
+  </form>
+  <ion-button expand="block" fill="clear" (click)="goToSplash()" class="register-back">بازگشت به صفحه اصلی</ion-button>
+</ion-content> 

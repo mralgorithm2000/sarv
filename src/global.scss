@@ -10,6 +10,23 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
+@font-face {
+  font-family: "IranSans";
+  src: url('./assets/fonts/eot/IRANSansX-Regular.eot');
+  src: url('./assets/fonts/eot/IRANSansX-Regular.eot') format('embedded-opentype'),
+       url('./assets/fonts/woff2/IRANSansX-Regular.woff2') format('woff2'),
+       url('./assets/fonts/woff/IRANSansX-Regular.woff') format('woff'),
+       url('./assets/fonts/ttf/IRANSansX-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "IranSansBold";
+  src: url('./assets/fonts/eot/IRANSansX-Bold.eot');
+  src: url('./assets/fonts/eot/IRANSansX-Bold.eot') format('embedded-opentype'),
+       url('./assets/fonts/woff2/IRANSansX-Bold.woff2') format('woff2'),
+       url('./assets/fonts/woff/IRANSansX-Bold.woff') format('woff'),
+       url('./assets/fonts/ttf/IRANSansX-Bold.ttf') format('truetype');
+}
+
 @import "@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -35,3 +52,26 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+html, body {
+  direction: rtl;
+  text-align: right;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: var(--ion-color-primary);
+    --border-color: transparent;
+    padding: 8px 0;
+  }
+
+  ion-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ion-text-color);
+  }
+
+  ion-button {
+    --color: #fff !important;
+  }
+}

@@ -1,0 +1,12 @@
+<ion-card *ngIf="visible" [ngClass]="['alert-card', getColorClass()]">
+  <div class="progress-bar" [style.animation-duration.ms]="timer"></div>
+
+  <ion-card-header>
+    <ion-card-title>{{ title || (type === 'success' ? 'موفق' : 'خطا') }}</ion-card-title>
+
+      <ion-button fill="clear" class="close-btn" size="small" (click)="dismiss()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+  </ion-card-header>
+  <ion-card-content>{{ message }}</ion-card-content>
+</ion-card>

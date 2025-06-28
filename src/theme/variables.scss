@@ -1,2 +1,54 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+:root {
+  --ion-color-primary: #86C144;
+  --ion-color-primary-rgb: 134, 193, 68;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #76ab3c; // darker shade
+  --ion-color-primary-tint: #94ce5a; // lighter tint
+  --ion-background-color: #f8fcff;
+  --ion-font-family: "IranSans";
+  --placeholder-color: #999999;
+  --ion-item-background: #f8fcff;
+  --ion-color-danger: #dc3545
+}
+
+:root.md {
+  --ion-background-color: #f8fcff;
+}
+
+$colors: (
+  primary: #86C144,
+  secondary: #3dc2ff,
+  tertiary: #5260ff,
+  success: #2dd36f,
+  warning: #ffc409,
+  danger: #eb445a,
+  dark: #222428,
+  medium: #92949c,
+  light: #f4f5f8
+);
+
+
+.btn-primary {
+  --background: var(--ion-color-primary);
+  --color: white;
+  --border-radius: 8px;
+  --box-shadow: none;
+}
+
+.btn-secondary {
+  --background: var(--ion-color-medium);
+  --color: white;
+  --border-radius: 8px;
+  --box-shadow: none;
+}
+
+.btn-info {
+  --background: var(--ion-color-secondary);
+  --color: white;
+  --border-radius: 8px;
+  --box-shadow: none;
+}

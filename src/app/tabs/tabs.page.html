@@ -1,0 +1,22 @@
+  <ion-router-outlet></ion-router-outlet>  <!-- router outlet directly inside ion-tabs -->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" routerLink="/tabs/home" routerLinkActive="tab-selected">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>خانه</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="search" routerLink="/tabs/search" routerLinkActive="tab-selected">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>جستجو</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile" routerLink="/tabs/profile" routerLinkActive="tab-selected">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>پروفایل</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="support" routerLink="/tabs/support" routerLinkActive="tab-selected">
+      <ion-icon name="help-circle"></ion-icon>
+      <ion-label>پشتیبانی</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
